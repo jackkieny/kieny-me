@@ -5,24 +5,16 @@ on:
     branches: [ test ]
 
 jobs:
-  build-and-test:
+  build-and-push:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Build and test React app
+    - name: Build React app
       run: |
         docker build -t kieny-me-frontend -f frontend/Dockerfile.frontend ./frontend
-
-  push-to-dockerhub:
-    needs: build-and-test
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
 
     - name: Login to DockerHub
       uses: docker/login-action@v1
@@ -30,7 +22,7 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-    - name: Push React app to DockerHub
+    - name: Tag and push React app to DockerHub
       run: |
         docker tag kieny-me-frontend:latest jackkieny/kieny-me-frontend:latest
         docker tag kieny-me-frontend:latest jackkieny/kieny-me-frontend:${{ github.sha }}
