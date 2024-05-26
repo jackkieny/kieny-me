@@ -24,7 +24,7 @@ jobs:
 
     - name: Tag and push React app to DockerHub
       run: |
-        docker tag kieny-me-frontend:latest jackkieny/kieny-me-frontend:latest
         docker tag kieny-me-frontend:latest jackkieny/kieny-me-frontend:${{ github.sha }}
-        docker push jackkieny/kieny-me-frontend:latest
+        docker tag kieny-me-frontend:latest jackkieny/kieny-me-frontend:latest
         docker push jackkieny/kieny-me-frontend:${{ github.sha }}
+        docker push jackkieny/kieny-me-frontend:latest
