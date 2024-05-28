@@ -12,6 +12,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Create SSL certificate and key
+      run: |
+        echo "${{ secrets.CERT_SECRET }}" > ./frontend/kieny-me.crt
+        echo "${{ secrets.KEY_SECRET }}" > ./frontend/kieny-me.key
+
     - name: Build React app
       run: |
         docker build -t kieny-me-frontend -f frontend/Dockerfile.frontend ./frontend
