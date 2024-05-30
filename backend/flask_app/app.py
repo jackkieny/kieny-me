@@ -2,9 +2,9 @@ import os
 from flask import Flask, jsonify
 from flask_cors import CORS
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='../fronend/build', static_url_path='/')
 CORS(app)
-CORS(app, origins=['http://jackkieny.com', 'https://www.jackkieny.com'])
+CORS(app, origins=['https://jackkieny.com', 'https://www.jackkieny.com'])
 
 @app.route('/api')
 def index():
