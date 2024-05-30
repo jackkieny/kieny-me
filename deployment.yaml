@@ -17,19 +17,7 @@ spec:
         image: jackkieny/kieny-me-frontend:latest
         ports:
         - containerPort: 80
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: kieny-me-frontend
-spec:
-  type: LoadBalancer
-  ports:
-  - name: http
-    port: 80
-    targetPort: 80
-  - name: https
-    port: 443
-    targetPort: 80
-  selector:
-    app: kieny-me-frontend
+      - name: kieny-me-backend
+        image: jackkieny/kieny-me-backend:latest
+        ports:
+        - containerPort: 5000
