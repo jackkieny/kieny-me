@@ -6,7 +6,7 @@ function Main() {
     const navigate = useNavigate();
     const handleClick = async (event) => {
         event.preventDefault();
-        const response = await fetch('/api/test', {
+        const response = await fetch('http://localhost:5000/api/test', {
             method: 'GET',
             headers: {
             'Content-Type': 'application/json',
