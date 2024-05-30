@@ -21,4 +21,3 @@ spec:
         image: jackkieny/kieny-me-backend:latest
         ports:
         - containerPort: 5000
-
