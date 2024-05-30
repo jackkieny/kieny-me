@@ -17,4 +17,8 @@ spec:
         image: jackkieny/kieny-me-frontend:latest
         ports:
         - containerPort: 80
+      - name: kieny-me-backend
+        image: jackkieny/kieny-me-backend:latest
+        ports:
+        - containerPort: 5000
 
