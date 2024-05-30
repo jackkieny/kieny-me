@@ -15,6 +15,9 @@ jobs:
     - name: Build React app
       run: |
         docker build -t kieny-me-frontend -f frontend/Dockerfile.frontend ./frontend
+
+    - name: Build Flask app
+      run: |
         docker build -t kieny-me-backend -f backend/Dockerfile.backend ./backend
 
     - name: Login to DockerHub
