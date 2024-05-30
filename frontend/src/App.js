@@ -1,18 +1,18 @@
 import './App.css';
-import { DiGithubFull } from "react-icons/di";
+import { BrowserRouter as Router, Route, Routes, useNavigate} from 'react-router-dom';
+import Main from './components/Main';
+import Test from './components/Test';
 
 function App() {
+  
   return (
     <div className="App">
-      <h1>kieny.me</h1>
-      <p>This project is under construction...</p>
-
-      <h2>View this project</h2>
-      <button className='github-button'>
-        <a href="https://github.com/jackkieny/kieny-me" target="_blank">
-          <DiGithubFull className='github-icon'/>
-        </a>
-      </button>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Main/>} />
+          <Route path="/test" element={<Test/>} />
+        </Routes>
+      </Router>
     </div>
   );
 }
